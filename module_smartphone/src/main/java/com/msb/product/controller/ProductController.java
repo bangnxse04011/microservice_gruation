@@ -2,7 +2,11 @@ package com.msb.product.controller;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
+import javax.ws.rs.Encoded;
 import javax.ws.rs.GET;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +31,7 @@ public class ProductController {
 	 * @return
 	 */
 	@GET
+	@Consumes(value = MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<List<Phone>> findAllPhone() {
 		List<Phone> dataPhone = phoneService.findAllPhone();
@@ -39,9 +44,12 @@ public class ProductController {
 	 * @return
 	 */
 	@GET
-	@RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON)
-	public ResponseEntity<List<Phone>> findPhoneByID(@PathVariable("id") Long id) {
-		List<Phone> dataPhone = phoneService.findPhoneByID(id);
+	@RequestMapping(value = "/a/{id}", produces = MediaType.APPLICATION_JSON)
+	@Encoded
+	public ResponseEntity<List<Phone>> findPhoneByID(@PathVariable("id") String id,
+			@QueryParam("name") @DefaultValue("BangNX1") @Encoded String name) {
+		System.out.println("--------------------------------- " + name);
+		List<Phone> dataPhone = phoneService.findPhoneByID(Long.parseLong(id));
 		return ResponseEntity.ok().body(dataPhone);
 	}
 
