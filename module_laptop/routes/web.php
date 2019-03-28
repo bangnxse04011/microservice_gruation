@@ -10,9 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// -------------------------------------------------------------------------
+// Router LAPTOP
 Route::get('laptop', 'LaptopController@index');
+Route::get('laptop/{id}', 'LaptopController@show');
