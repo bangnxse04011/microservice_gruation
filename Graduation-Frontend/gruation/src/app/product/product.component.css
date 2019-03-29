@@ -1,0 +1,34 @@
+@import url('../../assets/css/main.css');
+@import url('../../assets/css/reset.css');
+@import url('../../assets/css/responsive.css');
+
+.search .advanced_search .field_sep_custom{
+    display: inline-block;
+    width: 1px;
+    height: 40px;
+    border: 0;
+    background: #aac8e4;
+    margin: 10px 10px 10px 10px;
+    float: right;
+}
+
+
+.search .advanced_search .float-select{
+    display: inline-block;
+    height: 40px;
+    border: 0;
+    background: #aac8e4;
+    margin: 10px 10px 10px 10px;
+    float: right;
+}
+
+.hero{
+    width: 100%;
+    height: 800px;
+    position: relative;
+    background: url('../../assets/img/hero.jpg') no-repeat bottom center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
