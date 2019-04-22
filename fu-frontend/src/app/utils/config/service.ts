@@ -1,3 +1,3 @@
 export const FPT = {
-    SERVICE: "http://localhost:9876",
+    SERVICE_LAP: "laptop/",
 };

@@ -19,7 +19,7 @@ import com.msb.product.entity.Phone;
 import com.msb.product.service.PhoneService;
 
 @Controller
-@RequestMapping("product/v1/")
+@RequestMapping("/v1/api/product")
 public class ProductController {
 
 	@Autowired
@@ -34,6 +34,7 @@ public class ProductController {
 	@Consumes(value = MediaType.APPLICATION_JSON)
 	@RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON)
 	public ResponseEntity<List<Phone>> findAllPhone() {
+		System.out.println("findAllPhone");
 		List<Phone> dataPhone = phoneService.findAllPhone();
 		return ResponseEntity.ok().body(dataPhone);
 	}
