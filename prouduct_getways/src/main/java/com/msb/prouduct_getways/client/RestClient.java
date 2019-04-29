@@ -15,7 +15,7 @@ import com.msb.prouduct_getways.config.GetWaysConfig.SERVICE;
 public class RestClient {
 
 	private final String SERVICE_LAPTOP = SERVICE.LAPTOP_SERVICE;
-	private final String SERVICE_PHONE = SERVICE.LAPTOP_SERVICE;
+	private final String SERVICE_PHONE = SERVICE.PHONE_SERVICE;
 	private HttpHeaders headers = new HttpHeaders();
 	private RestTemplate restTemplate = new RestTemplate();
 
@@ -28,14 +28,30 @@ public class RestClient {
 	public String send(String chanel, HttpMethod httpMethod) {
 		config();
 		HttpEntity<Object> entity = new HttpEntity<Object>(headers);
-		String SERVICE_CALL = SERVICE_LAPTOP;
-		if (chanel.equals("phone")) {
-			SERVICE_CALL = SERVICE_PHONE;
+		String SERVICE_CALL = SERVICE_PHONE;
+		if (chanel.equals("laptop")) {
+			SERVICE_CALL = SERVICE_LAPTOP;
 		}
-		System.out.println("-------------------------------");
+		return restTemplate.exchange(SERVICE_CALL, httpMethod, entity, String.class).getBody();
+	}
+
+	/**
+	 * Method find by id
+	 * 
+	 * @param id
+	 * @param category
+	 * @param httpMethod
+	 * @return
+	 */
+	public String findById(String id, String category, HttpMethod httpMethod) {
+		config();
+		HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+		String SERVICE_CALL = SERVICE_PHONE + id;
+		if (category.equals("laptop")) {
+			SERVICE_CALL = SERVICE_LAPTOP + id;
+		}
 		System.out.println(SERVICE_CALL);
-		String result = restTemplate.exchange(SERVICE_CALL, httpMethod, entity, String.class).getBody();
-		return result;
+		return restTemplate.exchange(SERVICE_CALL, httpMethod, entity, String.class).getBody();
 	}
 
 	/**

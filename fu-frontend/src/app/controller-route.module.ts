@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent } from "../app/product/product.component";
+import { DetailsComponent } from "../app/details/details.component";
 
 // Variable config routers.
 const router: Routes = [
@@ -12,6 +13,10 @@ const router: Routes = [
   {
     path: 'product',
     component: ProductComponent
+  },
+  {
+    path: 'details/:id/:category',
+    component: DetailsComponent
   }
 ];
 

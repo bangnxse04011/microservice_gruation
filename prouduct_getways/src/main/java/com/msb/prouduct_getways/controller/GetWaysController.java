@@ -24,6 +24,11 @@ public class GetWaysController {
 	@Autowired
 	private RestClient restClient;
 
+	@RequestMapping(value = "/product/{id}/{category}")
+	public ResponseEntity<Object> findById(@PathVariable("id") String id, @PathVariable("category") String category) {
+		return ResponseEntity.ok().body(restClient.findById(id, category, HttpMethod.GET));
+	}
+
 	@RequestMapping(value = "/{chanel}")
 	public ResponseEntity<Object> findAll(@PathVariable("chanel") String chanel) {
 		return ResponseEntity.ok().body(restClient.send(chanel, HttpMethod.GET));

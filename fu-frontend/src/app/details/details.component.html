@@ -86,120 +86,36 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-3">
-					<div class="left-sidebar">
-						<h2>Sản Phẩm</h2>
-						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Điện Thoại
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li *ngFor="let proItem of listDataProduct"><a href="#">{{ proItem.phoneID }}</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Laptop
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li *ngFor="let proItem of listDataProductlaptop"><a href="#">{{ proItem.lap_category }}</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div><!--/category-products-->
-					
-						<div class="brands_products"><!--brands_products-->
-							<h2>Nhãn Hiệu</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-									<li *ngFor="let proItem of listDataProductlaptop"><a href="#">Hãng {{ proItem.lap_category }}</a></li>
-								</ul>
-							</div>
-						</div><!--/brands_products-->
-						
-						<div class="shipping text-center"><!--shipping-->
-							<img src="{{IMAGES_SERVICE}}/images/shipping.jpg" alt="" />
-						</div><!--/shipping-->
-					
-					</div>
-				</div>
-				<div class="col-sm-9 padding-right">
-					<div class="category-tab"><!--category-tab-->
-						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#tshirt" data-toggle="tab">Smartphone</a></li>
-							</ul>
-						</div>
-					</div><!--/category-tab-->
+				<div class="col-sm-12 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Chi Tiết Sản Phẩm</h2>
-						<div class="col-sm-4" *ngFor="let proItem of listDataProduct">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="{{IMAGES_SERVICE}}/images/{{ proItem.phoneImages }}" alt="" />
-										<h2>{{ proItem.phonePrice |  currency : "VND"}}</h2>
-										<p>{{ proItem.phoneName }}</p>
-										<a href="/details/{{ proItem.id }}/laptop" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi Tiết</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>{{ proItem.phoneInfo }}</h2>
-											<p>{{ proItem.phonePrice | currency : "VND"}}</p>
-											<a href="/details/{{ proItem.id }}/laptop" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi Tiết</a>
+						<div class="col-md-12">
+							<div class="col-md-4" *ngFor="let proItem of listDataProduct">
+								<div class="product-image-wrapper">
+									<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="{{IMAGES_SERVICE}}/images/{{ proItem.phoneImages }}" alt="" />
+											<h2>{{ proItem.phonePrice |  currency : "VND"}}</h2>
+											<p>{{ proItem.phoneName }}</p>
 										</div>
 									</div>
 								</div>
+								<h3>{{ proItem.phoneInfo }}</h3>
+								<a href="#" (click)="addToCard(proItem.id, 'phone')" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Mua Hàng</a>
 							</div>
 						</div>
-					</div><!--features_items-->
-					
-					<div class="category-tab"><!--category-tab-->
-						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#tshirt" data-toggle="tab">Laptop</a></li>
-							</ul>
-						</div>
-					</div><!--/category-tab-->
-					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Chi Tiết Sản Phẩm</h2>
-						<div class="col-sm-4" *ngFor="let proItem of listDataProductlaptop">
+						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{IMAGES_SERVICE}}/images/{{ proItem.images }}" alt="" />
-										<h2>{{ proItem.price |  currency : "VND"}}</h2>
-										<p>{{ proItem.name }}</p>
-										<a href="/details/{{ proItem.id }}/laptop" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi Tiết</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>{{ proItem.lap_info }}</h2>
-											<p>{{ proItem.price | currency : "VND"}}</p>
-											<a href="/details/{{ proItem.id }}/laptop" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Chi Tiết</a>
-										</div>
+										<img src="{{IMAGES_SERVICE}}/images/{{ listDataProductlaptop.images }}" alt="" />
+										<h2>{{ listDataProductlaptop.price |  currency : "VND"}}</h2>
+										<p>{{ listDataProductlaptop.name }}</p>
 									</div>
 								</div>
 							</div>
+							<h3>{{ listDataProductlaptop.lap_info }}</h3>
+							<a href="#" (click)="addToCard(listDataProductlaptop.id,'laptop')" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Mua Hàng</a>
 						</div>
 					</div><!--features_items-->
 				</div>

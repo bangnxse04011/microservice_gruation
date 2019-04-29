@@ -21,6 +21,7 @@ class CreateLaptopsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('lap_id');
+            $table->double('price');
             $table->string('images')->nullable();
             $table->text('lap_info')->nullable();
             $table->string('lap_category')->nullable();

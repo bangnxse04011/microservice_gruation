@@ -12,5 +12,5 @@
 */
 // -------------------------------------------------------------------------
 // Router LAPTOP
-Route::get('laptop', 'LaptopController@index');
-Route::get('laptop/{id}', 'LaptopController@show');
+Route::get('v1/api/laptop', 'LaptopController@index');
+Route::get('v1/api/laptop/{id}', 'LaptopController@show');

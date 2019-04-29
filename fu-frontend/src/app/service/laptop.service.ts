@@ -14,7 +14,7 @@ let options = {
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class LaptopService {
 
   // API link
   private API_URL = environment.SERVICE;
@@ -24,14 +24,14 @@ export class ProductService {
   /**
    * Find list product data.
    */
-  findProductData() {
-    return this.http.get<any[]>(`${this.API_URL}/phone/`).pipe(map(data => data));
+  findLaptopData() {
+    return this.http.get<any[]>(`${this.API_URL}/laptop/`).pipe(map(data => data));
   }
 
   /**
   * Find list product data.
   */
   findProductById(id: any) {
-    return this.http.get<any[]>(`${this.API_URL}/product/${id}/phone`).pipe(map(data => data));
+    return this.http.get<any[]>(`${this.API_URL}/product/${id}/laptop`).pipe(map(data => data));
   }
 }

@@ -2,9 +2,9 @@ export class Product {
     id: string;
     phoneName: string;
     phoneID: string;
-    phoneImages: number;
+    phoneImages: string;
     phonePrice: string;
-    phoneInfo: number;
+    phoneInfo: string;
     phoneCategory: number;
     createDate: string;
     isDelete: number;
