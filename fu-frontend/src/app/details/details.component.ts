@@ -17,8 +17,8 @@ export class DetailsComponent implements OnInit {
   // Create variable
   private IMAGES_SERVICE = FPT.environment.SERVICE;
   // Variable get all list data product
-  listDataProduct: Product[];
-  listDataProductlaptop: Laptop[];
+  listDataProduct: Product;
+  listDataProductlaptop: Laptop;
 
   constructor(private productService: ProductService,
     private laptopService: LaptopService,

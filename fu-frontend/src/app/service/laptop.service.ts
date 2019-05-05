@@ -32,6 +32,6 @@ export class LaptopService {
   * Find list product data.
   */
   findProductById(id: any) {
-    return this.http.get<any[]>(`${this.API_URL}/product/${id}/laptop`).pipe(map(data => data));
+    return this.http.get<any>(`${this.API_URL}/product/${id}/laptop`).pipe(map(data => data));
   }
 }
