@@ -50,6 +50,19 @@ public class ProductController {
 		return ResponseEntity.ok().body(dataPhone);
 	}
 
+	/**
+	 * Method find phone by id
+	 * 
+	 * @return
+	 */
+	@GET
+	@RequestMapping(value = "/category/{id}", produces = MediaType.APPLICATION_JSON)
+	@Encoded
+	public ResponseEntity<List<Phone>> findPhoneByCategory(@PathVariable("id") String id) {
+		List<Phone> dataPhone = phoneService.findPhoneByPhoneId(Integer.parseInt(id));
+		return ResponseEntity.ok().body(dataPhone);
+	}
+
 //	@GET
 //	@RequestMapping(value = "/status/{status}", produces = MediaType.APPLICATION_JSON)
 //	public ResponseEntity<List<Phone>> findAllPhoneByStatus(@PathVariable("status") int status) {

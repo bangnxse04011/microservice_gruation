@@ -36,6 +36,22 @@ public class RestClient {
 	}
 
 	/**
+	 * Method send
+	 * 
+	 * @param topupRequest
+	 * @return
+	 */
+	public String findCategory(String chanel) {
+		config();
+		HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+		String SERVICE_CALL = SERVICE.PHONE_CATEGORY;
+		if (chanel.equals("laptop")) {
+			SERVICE_CALL = SERVICE.LAPTOP_CATEGORY;
+		}
+		return restTemplate.exchange(SERVICE_CALL, HttpMethod.GET, entity, String.class).getBody();
+	}
+
+	/**
 	 * Method find by id
 	 * 
 	 * @param id

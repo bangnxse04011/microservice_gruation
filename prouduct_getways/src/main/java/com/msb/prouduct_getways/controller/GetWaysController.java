@@ -29,6 +29,11 @@ public class GetWaysController {
 		return ResponseEntity.ok().body(restClient.findById(id, category, HttpMethod.GET));
 	}
 
+	@RequestMapping(value = "/filter/{category}")
+	public ResponseEntity<Object> findCat(@PathVariable("category") String category) {
+		return ResponseEntity.ok().body(restClient.findCategory(category));
+	}
+
 	@RequestMapping(value = "/{chanel}")
 	public ResponseEntity<Object> findAll(@PathVariable("chanel") String chanel) {
 		return ResponseEntity.ok().body(restClient.send(chanel, HttpMethod.GET));

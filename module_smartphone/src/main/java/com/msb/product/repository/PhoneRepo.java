@@ -14,4 +14,6 @@ public interface PhoneRepo extends CrudRepository<Phone, Long> {
 
 	public List<Phone> findPhoneById(Long id);
 
+	public List<Phone> findPhoneByPhoneID(int id);
+
 }
