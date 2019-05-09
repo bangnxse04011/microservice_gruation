@@ -10,7 +10,7 @@ public interface IProduct {
 
 	public List<Phone> findPhoneByID(Long id);
 
-	public List<Phone> findPhoneByPhoneId(int id);
+	public List<Phone> findPhoneByPhoneId(String pId);
 
 //	public List<Phone> findAllPhoneActive(int status);
 

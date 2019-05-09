@@ -26,8 +26,8 @@ public class PhoneService implements IProduct {
 	}
 
 	@Override
-	public List<Phone> findPhoneByPhoneId(int id) {
-		return phoneRepo.findPhoneByPhoneID(id);
+	public List<Phone> findPhoneByPhoneId(String pId) {
+		return phoneRepo.findPhoneByPhoneID(pId);
 	}
 
 //	@Override

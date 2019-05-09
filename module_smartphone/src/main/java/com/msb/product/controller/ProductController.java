@@ -3,7 +3,6 @@ package com.msb.product.controller;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.Encoded;
 import javax.ws.rs.GET;
 import javax.ws.rs.core.MediaType;
 
@@ -44,7 +43,6 @@ public class ProductController {
 	 */
 	@GET
 	@RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON)
-	@Encoded
 	public ResponseEntity<List<Phone>> findPhoneByID(@PathVariable("id") String id) {
 		List<Phone> dataPhone = phoneService.findPhoneByID(Long.parseLong(id));
 		return ResponseEntity.ok().body(dataPhone);
@@ -57,9 +55,8 @@ public class ProductController {
 	 */
 	@GET
 	@RequestMapping(value = "/category/{id}", produces = MediaType.APPLICATION_JSON)
-	@Encoded
 	public ResponseEntity<List<Phone>> findPhoneByCategory(@PathVariable("id") String id) {
-		List<Phone> dataPhone = phoneService.findPhoneByPhoneId(Integer.parseInt(id));
+		List<Phone> dataPhone = phoneService.findPhoneByPhoneId(id);
 		return ResponseEntity.ok().body(dataPhone);
 	}
 
